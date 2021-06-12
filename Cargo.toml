@@ -1,0 +1,11 @@
+[package]
+name = "pathfinding-test"
+version = "0.1.0"
+authors = ["Elabajaba <Elabajaba@users.noreply.github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# hierarchical_pathfinding = { git = "https://github.com/mich101mich/hierarchical_pathfinding", branch = "master", version = "*" }
+hierarchical_pathfinding = "0.4"
