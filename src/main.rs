@@ -9,7 +9,7 @@ fn main() {
     let start = (0, 0);
     let end = (63, 0);
 
-    let pathfinding = PathCache::new(
+    let mut pathfinding = PathCache::new(
         (width, height),                           // the size of the Grid
         |(x, y)| map.get_tile_cost(x, y),          // get the cost for walking over a Tile
         MooreNeighborhood::new(width, height), // the Neighborhood
