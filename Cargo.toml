@@ -8,4 +8,10 @@ edition = "2018"
 
 [dependencies]
 # hierarchical_pathfinding = { git = "https://github.com/mich101mich/hierarchical_pathfinding", branch = "master", version = "*" }
-hierarchical_pathfinding = "0.4"
+# hierarchical_pathfinding = "0.4"
+hierarchical_pathfinding = { version="*", path="../hierarchical_pathfinding" }
+slab = "0.4.3"
+# profiling = { version="1.0.3", features=["profile-with-optick"] }
+
+[profile.release]
+lto = "thin"
