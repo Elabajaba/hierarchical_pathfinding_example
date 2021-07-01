@@ -7,10 +7,12 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+dashmap = "4.0.2"
+hashbrown = "0.11.2"
 # hierarchical_pathfinding = { git = "https://github.com/mich101mich/hierarchical_pathfinding", branch = "master", version = "*" }
 # hierarchical_pathfinding = "0.4"
 hierarchical_pathfinding = { version="*", path="../hierarchical_pathfinding" }
-slab = "0.4.3"
+# slab = "0.4.3"
 # profiling = { version="1.0.3", features=["profile-with-optick"] }
 
 [profile.release]

@@ -1,0 +1,9 @@
+Vec:
+finished creating the pathcache in 132.1022ms
+prepped the solid wall
+updated the pathmap with the changed tiles in 54.6033ms
+
+Hashbrown (always beat std hashmap):
+finished creating the pathcache in 141.1468ms
+prepped the solid wall
+updated the pathmap with the changed tiles in 60.9718ms

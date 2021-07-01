@@ -1,5 +1,5 @@
 use hierarchical_pathfinding::prelude::*;
-use std::collections::HashMap;
+use hashbrown::HashMap;
 
 fn main() {
     // profiling::register_thread!("Main Thread");
@@ -85,7 +85,7 @@ fn make_pathcache(width: usize, height: usize, map: &Map) -> PathCache<MooreNeig
 fn update_pathcache() {}
 
 pub struct Map {
-    tiles: Vec<Tile>,
+    tiles: HashMap<usize, Tile>,
     width: usize,
     height: usize,
 }
@@ -94,8 +94,9 @@ impl Map {
     // #[profiling::function]
     pub fn new(width: usize, height: usize) -> Self {
         let tile_count = width * height;
+        let hashmap = HashMap::with_capacity(tile_count);
         Map {
-            tiles: vec![Tile { cost: 1 }; tile_count],
+            tiles: hashmap,
             width,
             height,
         }
@@ -105,14 +106,20 @@ impl Map {
     pub fn set_cost(&mut self, x: usize, y: usize, cost: isize) {
         let pos = self.get_tile_index(x, y);
         if let Some(pos) = pos {
-            self.tiles[pos].cost = cost;
+            let tile = self.tiles.entry(pos).or_insert(Tile { cost: cost });
+            tile.cost = cost;
+            // self.tiles.get_mut(&pos).cost = cost;
         }
     }
 
     // #[profiling::function]
     fn get_tile_cost(&self, x: usize, y: usize) -> isize {
         let index = self.get_tile_index(x, y).unwrap();
-        self.tiles[index].cost
+
+        match self.tiles.get(&index) {
+            Some(tile) => tile.cost,
+            None => 1,
+        }
     }
 
     // #[profiling::function]
