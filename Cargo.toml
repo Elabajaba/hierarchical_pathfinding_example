@@ -8,11 +8,17 @@ edition = "2018"
 
 [dependencies]
 dashmap = "4.0.2"
+env_logger = "0.9.0"
 hashbrown = "0.11.2"
-# hierarchical_pathfinding = { git = "https://github.com/mich101mich/hierarchical_pathfinding", branch = "master", version = "*" }
+hierarchical_pathfinding = { git = "https://github.com/Elabajaba/hierarchical_pathfinding", branch = "slotmap", version = "*", features = [
+    "log",
+] }
 # hierarchical_pathfinding = "0.4"
-hierarchical_pathfinding = { version="*", path="../hierarchical_pathfinding" }
-# slab = "0.4.3"
+# hierarchical_pathfinding = { version="*", path="../hierarchical_pathfinding" }
+log = "0.4.14"
+oorandom = "11.1.3"
+pathfinding = "2.2.1"
+petgraph = "0.6.0"
 # profiling = { version="1.0.3", features=["profile-with-optick"] }
 
 [profile.release]
